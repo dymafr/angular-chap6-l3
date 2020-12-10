@@ -4,9 +4,7 @@ import { Directive, ElementRef, HostListener, OnInit } from "@angular/core";
   selector: "[appColor]"
 })
 export class ColorDirective implements OnInit {
-  @HostListener("mouseenter", ["$event.target"]) private surligne(
-    e: MouseEvent
-  ) {
+  @HostListener("mouseenter", ["$event"]) private surligne(e: MouseEvent) {
     console.log(e);
     this.el.nativeElement.style.color = "red";
   }
@@ -15,7 +13,7 @@ export class ColorDirective implements OnInit {
     this.el.nativeElement.style.color = "black";
   }
 
-  @HostListener("window:click", ["$event.target"]) private test(e: MouseEvent) {
+  @HostListener("window:click", ["$event"]) private test(e: MouseEvent) {
     console.log(e);
   }
 
